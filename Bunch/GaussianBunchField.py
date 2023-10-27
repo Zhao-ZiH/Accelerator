@@ -46,11 +46,11 @@ class Gaussian_Bunch:
         return up / down
 
     def __Get_q_limit(self,x,y,z):
-        if  x/self.sigma_x>100  or y/self.sigma_y>100 or z/self.sigma_z>100:
+        if  x/self.sigma_x>20  or y/self.sigma_y>20 or z/self.sigma_z>20:
             return 1
 
         else:
-            return np.max([20*self.sigma_x,20*self.sigma_y])
+            return np.min([1e3*self.sigma_x**2,1e3*self.sigma_y**2])
     def Get_E_y(self,x,y,z):
         q_limit=self.__Get_q_limit(x,y,z)
 
